@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-3">
+        <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                Filters
+              </li>
+              <li class="nav-item">
+                  Filters
+                </li>
+              <li class="nav-item">
+                  Filters
+                </li>
+              <li class="nav-item">
+                  Filters
+                </li>
+                <li class="nav-item">
+                    Filters
+                  </li>
+            </ul>
+         </div>
+        </div>
+    <div class="col-md-9">
+      <div class="row align-items-center">
+        <div class="col-md-3" *ngFor="let person of people">
+            <img src="https://picsum.photos/200/230/?image=002"/> 
+            <ngb-rating [readonly]="readonly"></ngb-rating>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
