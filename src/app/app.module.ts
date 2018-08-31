@@ -9,6 +9,9 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ProductComponent } from './product/product.component';
 import { ProductlistingComponent } from './productlisting/productlisting.component';
 import { Routes, RouterModule } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
+import { ManageitemComponent } from './admin/manageitem/manageitem.component';
+import { ManagespecificationComponent } from './admin/managespecification/managespecification.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,14 @@ const routes: Routes = [
   {
       path: 'products',
       component: ProductlistingComponent
+  },
+  {
+      path: 'signup',
+      component: SignupComponent
+  }, 
+  {
+    path: 'admin',
+    component: ManageitemComponent
   }
 ];
 
@@ -36,7 +47,10 @@ const routes: Routes = [
     LoginComponent,
     AboutusComponent,
     ProductComponent,
-    ProductlistingComponent
+    ProductlistingComponent,
+    SignupComponent,
+    ManageitemComponent,
+    ManagespecificationComponent
   ],
   imports: [
     RouterModule.forRoot(

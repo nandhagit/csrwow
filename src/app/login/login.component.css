@@ -1,4 +1,4 @@
 .row.justify-content-center.align-items-center{
-    background-image: url(https://picsum.photos/1200/800?random&t=1);
+    background-image: url(https://picsum.photos/1200/800/?image=90);
     min-height: 500px;
 }

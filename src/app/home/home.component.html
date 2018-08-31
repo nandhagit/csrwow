@@ -23,5 +23,16 @@
         </div>
       </ng-template>
     </ngb-carousel>
+  </div>
+    <div class="row offers">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-3" *ngFor="let number of [0,1,2,3]">
+            <img src="https://picsum.photos/200/230/?image=002"/> 
+            <ngb-rating [readonly]="readonly"></ngb-rating>
+          </div>
+          </div>
         </div>
+      </div>
+
       </div>

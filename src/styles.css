@@ -2,3 +2,32 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.min.css';
 
+.container{
+    padding-top: 5%;
+}
+.subemail, .subbtn{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.subscribtion.row.align-items-start {
+    background-color: #e0e1e2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.copyright{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.footer{
+    background-color: #f8f9fa;
+}
+.facebook{
+    color: #13138a;
+}
+.twitter{
+    color: deepskyblue;
+}
+.youtube, .google{
+    color: #da0404;
+}
