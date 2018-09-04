@@ -3,15 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { ProductComponent } from './product/product.component';
-import { ProductlistingComponent } from './productlisting/productlisting.component';
+import { ProductComponent } from './product/product/product.component';
+import { ProductlistingComponent } from './product/productlisting/productlisting.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { ManageitemComponent } from './admin/manageitem/manageitem.component';
 import { ManagespecificationComponent } from './admin/managespecification/managespecification.component';
+import { ProductService } from './product/productservice/product.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -57,9 +60,11 @@ const routes: Routes = [
       routes, {useHash: true}
     ),
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

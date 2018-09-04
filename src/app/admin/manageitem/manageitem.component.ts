@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ProductService } from '../../product/productservice/product.service';
 
 @Component({
   selector: 'app-manageitem',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageitemComponent implements OnInit {
 
-  constructor() { }
+  product: any = {};
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
+  }
+
+  saveitem(form: NgForm) {
+    this.productService.saveProducts(form).subscribe(result => {
+      console.log(result);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

@@ -23,8 +23,8 @@
     </div>
     <div class="col-md-9">
       <div class="row align-items-center">
-        <div class="col-md-3" *ngFor="let person of people">
-          <app-product></app-product>
+        <div class="col-md-3" *ngFor="let item of products">
+          <app-product [product] = "item"></app-product>
         </div>
       </div>
     </div>
