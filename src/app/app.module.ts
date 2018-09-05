@@ -17,8 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
   {
-      path: '',
+      path: 'home',
       component: HomeComponent
   },
   {
@@ -36,7 +37,7 @@ const routes: Routes = [
   {
       path: 'signup',
       component: SignupComponent
-  }, 
+  },
   {
     path: 'admin',
     component: ManageitemComponent
@@ -57,7 +58,7 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(
-      routes, {useHash: true}
+      routes
     ),
     BrowserModule,
     NgbModule,
