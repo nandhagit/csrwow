@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Product} from '../product';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product',
@@ -10,10 +10,12 @@ export class ProductComponent implements OnInit {
 
   @Input() product: Product;
 
+  currentRate = 3.3;
+
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

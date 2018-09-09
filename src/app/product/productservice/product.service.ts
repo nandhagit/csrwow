@@ -7,13 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
+  productname = '';
+
   constructor(private http: HttpClient) {}
 
-  getProducts():Observable<any>{
+  getProducts(): Observable<any> {
     return this.http.get("http://localhost:8080/getproducts");
   }
 
-  saveProducts(product: any):Observable<any>{
+  saveProducts(product: any): Observable<any> {
     return this.http.post("http://localhost:8080/products", product);
   }
 }

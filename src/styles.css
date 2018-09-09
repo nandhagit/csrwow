@@ -2,32 +2,47 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.min.css';
 
-.container{
-    padding-top: 5%;
+.container {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
-.subemail, .subbtn{
-    padding-left: 0px;
-    padding-right: 0px;
+
+.footer {
+  margin-top: 5rem;
+  color: black;
+  background-color: #e8e7e7;
 }
-.subscribtion.row.align-items-start {
-    background-color: #e0e1e2;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+.facebook {
+  color: #13138a;
 }
-.copyright{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
+
+.twitter {
+  color: deepskyblue;
 }
-.footer{
-    background-color: #f8f9fa;
+
+.youtube,
+.google {
+  color: #da0404;
 }
-.facebook{
-    color: #13138a;
+
+.navbar {
+  background-color: #28a745;
 }
-.twitter{
-    color: deepskyblue;
+
+.navbar-nav .nav-link,
+.navbar-nav .nav-link.active {
+  color: rgb(255, 255, 255);
 }
-.youtube, .google{
-    color: #da0404;
+
+.footer>div{
+  padding: 10px;
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }

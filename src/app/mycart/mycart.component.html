@@ -1,0 +1,38 @@
+<div class="container">
+  <p>My cart: {{products.length}}</p>
+  <div class="row align-items-start">
+    <div class="col-md-9 jumbotron rounded border border-primary shadow p-2 mb-4" *ngFor="let item of products">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="../../../assets/bag/baglittle.png" />
+        </div>
+        <div class="itemdetails col col-md-4">
+          <ul>
+            <li><b>{{item.name}}</b></li>
+            <li> <span class="font-weight-light">{{item.code}}</span></li>
+            <li> <b>{{item.price | currency:'INR'}}</b></li>
+          </ul>
+          <button class="btn btn-danger">Remove</button>
+          <button class="btn">Add to wishlist</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 sidebar-sticky sticky-top">
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Details</h5>
+              <p class="card-text">Price:<span>1200</span></p>
+              <p class="card-text">Total amount:<span>1200</span></p>
+            </div>
+          </div>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-md-3">
+      <button class="btn btn-lg btn-success btn-block">Confirm</button>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-lg btn-secondary btn-block">Continue Shopping</button>
+    </div>
+  </div>
+</div>

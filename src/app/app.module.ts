@@ -15,6 +15,8 @@ import { ManagespecificationComponent } from './admin/managespecification/manage
 import { ProductService } from './product/productservice/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CheckoutComponent } from './payment/checkout/checkout.component';
+import { MycartComponent } from './mycart/mycart.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'admin',
     component: ManageitemComponent
+  },
+  {
+    path: 'payment',
+    component: CheckoutComponent
+  },
+  {
+    path: 'mycart',
+    component: MycartComponent
   }
 ];
 
@@ -54,7 +64,9 @@ const routes: Routes = [
     ProductlistingComponent,
     SignupComponent,
     ManageitemComponent,
-    ManagespecificationComponent
+    ManagespecificationComponent,
+    CheckoutComponent,
+    MycartComponent
   ],
   imports: [
     RouterModule.forRoot(

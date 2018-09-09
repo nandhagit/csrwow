@@ -1,0 +1,17 @@
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before,
+.custom-control-input:checked~.custom-control-label::before {
+  background-color: #28a745;
+}
+
+ul.filters, .border.rounded {
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+.bagfilter {
+  margin: 0px 20px;
+}
+
+ul {
+  padding: 10px 10px;
+}

@@ -1,8 +1,8 @@
-<div class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="navbar navbar-expand-lg shadow p-2 mb-4 fixed-top">
   <a class="navbar-brand" href="#">WOW</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
       </li>
       <!--<li class="nav-item dropdown">
@@ -16,31 +16,44 @@
                 <a class="dropdown-item" href="#">Action 3</a>
               </div>
             </li>-->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/aboutus']">About us</a>
+        <a class="nav-link" [routerLink]="['/aboutus']">Who we are</a>
+      </li>
+      <li class="nav-item">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-success" id="dropdownBasic" ngbDropdownToggle>Extra</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic">
+            <button class="dropdown-item">Extra 1</button>
+            <button class="dropdown-item">Extra 2</button>
+            <button class="dropdown-item">Extra 3</button>
+          </div>
+        </div>
       </li>
     </ul>
-    <form class="form-inline">
+    <form class="form-inline" id="formsearch">
       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+      <button class="btn" type="submit">Search</button>
     </form>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" *ngIf="authenticated()"><a class="nav-link" routerLinkActive="active" routerLink="/admin"><i
             class="fa fa-user-plus" aria-hidden="true"></i>
           Admin</a></li>
-      <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/signup"><i class="fa fa-shopping-cart"
+      <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/mycart"><i class="fa fa-shopping-cart"
             aria-hidden="true"></i>
           Cart</a></li>
-      <li class="nav-item"><a class="nav-link" routerLinkActive="active" routerLink="/login"><i class="fa fa-user-plus"
+      <li class="nav-item" *ngIf="!authenticated()"><a class="nav-link" routerLinkActive="active" routerLink="/signup"><i class="fa fa-user-plus"
             aria-hidden="true"></i>
-          Sign in</a></li>
-      <li class="nav-item"><a class="nav-link" (click)="logout()"><i class="fa fa-user-minus"
+          Sign up</a></li>
+      <li class="nav-item" *ngIf="!authenticated()"><a class="nav-link" routerLinkActive="active" routerLink="/login"><i class="fa fa-sign-in"
             aria-hidden="true"></i>
-            Logout</a></li>
-     </ul>
+          Login</a></li>
+      <li class="nav-item" *ngIf="authenticated()"><a class="nav-link" (click)="logout()"><i class="fa fa-user-minus"
+            aria-hidden="true"></i>
+          Logout</a></li>
+    </ul>
   </div>
 </div>
 
