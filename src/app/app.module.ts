@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login/login.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ProductComponent } from './product/product/product.component';
 import { ProductlistingComponent } from './product/productlisting/productlisting.component';
@@ -13,32 +13,35 @@ import { SignupComponent } from './signup/signup.component';
 import { ManageitemComponent } from './admin/manageitem/manageitem.component';
 import { ManagespecificationComponent } from './admin/managespecification/managespecification.component';
 import { ProductService } from './product/productservice/product.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CheckoutComponent } from './payment/checkout/checkout.component';
 import { MycartComponent } from './mycart/mycart.component';
+import { WowInterceptor } from './wow-interceptor';
+import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
+
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home'},
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
-      path: 'home',
-      component: HomeComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
-      path: 'login',
-      component: LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-      path: 'aboutus',
-      component: AboutusComponent
+    path: 'aboutus',
+    component: AboutusComponent
   },
   {
-      path: 'products',
-      component: ProductlistingComponent
+    path: 'products',
+    component: ProductlistingComponent
   },
   {
-      path: 'signup',
-      component: SignupComponent
+    path: 'signup',
+    component: SignupComponent
   },
   {
     path: 'admin',
@@ -51,6 +54,10 @@ const routes: Routes = [
   {
     path: 'mycart',
     component: MycartComponent
+  },
+  {
+    path: 'openItem',
+    component: ProductdisplayComponent
   }
 ];
 
@@ -66,7 +73,8 @@ const routes: Routes = [
     ManageitemComponent,
     ManagespecificationComponent,
     CheckoutComponent,
-    MycartComponent
+    MycartComponent,
+    ProductdisplayComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -77,7 +85,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, { provide: HTTP_INTERCEPTORS, useClass: WowInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

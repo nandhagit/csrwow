@@ -1,0 +1,7 @@
+<div class="container">
+  <app-product *ngIf="product" [product]="product"></app-product>
+  <div>
+    <button class="btn btn-success" (click)="addtocart()">Add to cart</button>
+    <button class="btn btn-primary">Add to wishlist</button>
+  </div>
+</div>

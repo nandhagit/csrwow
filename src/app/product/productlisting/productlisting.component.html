@@ -5,52 +5,10 @@
         <ul class="nav flex-column border rounded filters">
           <div class="bagfilter">
             <h6>Jute Bags</h6>
-            <li class="nav-item">
+            <li class="nav-item" *ngFor="let type of jutetype">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="lsb">
-                <label class="custom-control-label" for="lsb">Long Shopping Bag</label>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="plsb">
-                <label class="custom-control-label" for="plsb">Piping Long Shopping Bag</label>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="prb">
-                <label class="custom-control-label" for="prb">Piping Rectangular Bag</label>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="prsb">
-                <label class="custom-control-label" for="prsb">Printed Round Shopping Bag</label>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="rsb">
-                <label class="custom-control-label" for="rsb">Rectangular Shopping Bag</label>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="rosb">
-                <label class="custom-control-label" for="rosb">Round Shopping Bag</label>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="tlb">
-                <label class="custom-control-label" for="tlb">Trapezium Lunch Bag</label>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="wbb">
-                <label class="custom-control-label" for="wbb">Water Bottle Bag</label>
+                <input type="checkbox" class="custom-control-input" [id]="type.id" [checked]="false" (change)="filterProduct(type.value, $event)">
+                <label class="custom-control-label" [for]="type.id">{{type.value}}</label>
               </div>
             </li>
           </div>
@@ -58,10 +16,10 @@
         <ul class="nav flex-column border rounded filters">
           <div class="bagfilter">
             <h6>Batwa Bags</h6>
-            <li class="nav-item">
+            <li class="nav-item" *ngFor="let type of batwatype">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="bbb">
-                <label class="custom-control-label" for="bbb">Big Batwa Bag</label>
+                <input type="checkbox" class="custom-control-input" [id]="type.id" [checked]="false" (change)="filterProduct(type.value, $event)">
+                <label class="custom-control-label" [for]="type.id">{{type.value}}</label>
               </div>
             </li>
           </div>
@@ -73,9 +31,11 @@
         <div class="col col-md-12" *ngIf="!products">
           <h3>No items to display!</h3>
         </div>
-        <div class="col col-md-3" *ngFor="let item of products">
-          <app-product [product]="item"></app-product>
-        </div>
+
+          <div class="col col-md-3" *ngFor="let item of products" (click)="openItem(item.id)">
+            <app-product [product]="item"></app-product>
+          </div>
+    
       </div>
     </div>
   </div>
