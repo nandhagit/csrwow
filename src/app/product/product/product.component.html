@@ -1,10 +1,12 @@
-<img src="../../../assets/bag/bag.png" />
+<a class="productimage" (click)="openItem(product.id)"><img src="../../../assets/bag/bag.png" /></a>
 <div><b>{{product.name}}</b></div>
 <div><span class="font-weight-light">{{product.code}}</span></div>
 <div><b>{{product.price | currency:'INR'}}</b></div>
 <div>{{product.size}}</div>
+<!--
 <ngb-rating [(rate)]="currentRate" [readonly]="true" max="5">
   <ng-template let-fill="fill" let-index="index">
     <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
   </ng-template>
 </ngb-rating>
+-->

@@ -34,11 +34,6 @@ export class ProductlistingComponent implements OnInit {
     });
   }
 
-  openItem(itemId: string) {
-    localStorage.setItem('itemId', itemId);
-    this.router.navigateByUrl('/openItem');
-  }
-
   filterProduct(type: string, event: Event) {
     if ((<HTMLInputElement>event.target).checked) {
       this.filter.push(type);

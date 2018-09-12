@@ -32,7 +32,7 @@
           <h3>No items to display!</h3>
         </div>
 
-          <div class="col col-md-3" *ngFor="let item of products" (click)="openItem(item.id)">
+          <div class="col col-md-3" *ngFor="let item of products">
             <app-product [product]="item"></app-product>
           </div>
     

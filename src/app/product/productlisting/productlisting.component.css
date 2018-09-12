@@ -4,8 +4,10 @@
 }
 
 ul.filters, .border.rounded {
-  background-color: #f8f9fa;
   margin-bottom: 20px;
+}
+ul.filters{
+background-color: #e8e7e76b;
 }
 
 .bagfilter {

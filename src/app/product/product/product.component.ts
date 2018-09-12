@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -12,10 +13,15 @@ export class ProductComponent implements OnInit {
 
   currentRate = 3.3;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
+  }
+
+  openItem(itemId: string) {
+    localStorage.setItem('itemId', itemId);
+    this.router.navigateByUrl('/openItem');
   }
 
 }

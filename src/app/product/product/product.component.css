@@ -8,3 +8,7 @@
 .filled.bad {
   color: #28a745;
 }
+
+a.productimage {
+  cursor: pointer;
+}
