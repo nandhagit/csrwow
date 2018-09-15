@@ -12,3 +12,11 @@
 a.productimage {
   cursor: pointer;
 }
+a.productimage>img {
+  width: 100%;
+}
+
+.price{
+  color: #007bff;
+}
+

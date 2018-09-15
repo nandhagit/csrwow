@@ -1,7 +1,7 @@
 <div class="container">
-  <p>My cart: {{products.length}}</p>
-  <div class="row align-items-start">
-    <div class="col-md-9 jumbotron rounded border border-primary shadow p-2 mb-4" *ngFor="let item of products">
+  <div *ngIf="products">
+    <h4>My cart: {{products.length}}</h4>
+    <!--<div class="col-md-9 jumbotron rounded border border-primary shadow p-2 mb-4" *ngFor="let item of products">
       <div class="row">
         <div class="col-md-2">
           <img src="../../../assets/bag/baglittle.png" />
@@ -16,23 +16,52 @@
           <button class="btn">Add to wishlist</button>
         </div>
       </div>
-    </div>
-    <div class="col-md-3 sidebar-sticky sticky-top">
-        <div class="card">
+    </div>-->
+    <div class="card row" *ngFor="let item of products">
+      <div class="col col-md-10">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="../../../assets/bag/baglittle.png" />
+          </div>
+          <div class="col-md-10">
             <div class="card-body">
-              <h5 class="card-title">Details</h5>
-              <p class="card-text">Price:<span>1200</span></p>
-              <p class="card-text">Total amount:<span>1200</span></p>
+              <h5 class="card-title">{{item.name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{item.size}}</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's
+                content.</p>
+              <a href="#" class="card-link">Remove</a>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-md-3 sidebar-sticky sticky-top">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Details</h5>
+            <p class="card-text">Price:<span>1200</span></p>
+            <p class="card-text">Total amount:<span>1200</span></p>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--<div class="col-md-3 sidebar-sticky sticky-top">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Details</h5>
+          <p class="card-text">Price:<span>1200</span></p>
+          <p class="card-text">Total amount:<span>1200</span></p>
+        </div>
+      </div>
+    </div>-->
   </div>
-  <div class="row justify-content-end">
-    <div class="col-md-3">
-      <button class="btn btn-lg btn-success btn-block">Confirm</button>
-    </div>
-    <div class="col-md-3">
-      <button class="btn btn-lg btn-secondary btn-block">Continue Shopping</button>
+  <div *ngIf="products.length==0">
+    <p>My cart: 0</p>
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">No items in card</p>
+        <a href="#" class="card-link">Continue Shopping...</a>
+      </div>
     </div>
   </div>
 </div>

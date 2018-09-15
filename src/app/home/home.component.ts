@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product/productservice/product.service';
+import { Product } from '../product/product';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  images = [1, 2, 3].map(() => `https://picsum.photos/1400/350?random&t=${Math.random()}`);
-
-  constructor() { }
-
+  products: Product[];
+  images = ['https://picsum.photos/1680/300', 'https://picsum.photos/1680/300', 'https://picsum.photos/1680/300', 'https://picsum.photos/1680/300', 'https://picsum.photos/1680/300'];
+  constructor(private productService: ProductService) { }
   ngOnInit() {
+    this.productService.getProducts().subscribe(response => {
+      this.products = response;
+      this.products = this.products.slice(4, this.products.length)
+      console.log(this.products.length)
+    })
   }
 
 }

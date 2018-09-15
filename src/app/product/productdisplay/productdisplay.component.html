@@ -1,7 +1,48 @@
 <div class="container">
-  <app-product *ngIf="product" [product]="product"></app-product>
-  <div>
-    <button class="btn btn-success" (click)="addtocart()">Add to cart</button>
-    <button class="btn btn-primary">Add to wishlist</button>
+  <div class="row">
+    <div class="col col-md-4 sidebar-sticky sticky-top">
+      <div class="sidebar-sticky sticky-top">
+        <div *ngIf="product">
+          <a class="productimage" (click)="openItem(product.id)">
+            <img src="../../../assets/bag/bag.png" />
+          </a>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="btn-block btn btn-primary" (click)="addtocart()">Add to cart</button>
+            <ngb-alert *ngIf="successmsg" type="success" (close)="successmsg=null">Item successfully added to cart</ngb-alert>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-6">
+      <h3>{{product.name}}</h3>
+      <div>Code: <span class="font-weight-light">{{product.code}}</span></div>
+      <div class="price"><b>{{product.price | currency:'INR'}}</b></div>
+      <div><b>Size: </b>{{product.size}}</div>
+      <h4>Description</h4>
+      <p>Product descripption Product descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+        descripptionProduct descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+        descripptionProduct descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+        descripptionProduct descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+        descripptionProduct descripptionProduct descripptionProduct descripptiondescripptionProduct descripptionProduct
+        descripptionProduct descripptionProduct descripption</p>
+      <h5>Rating and Reviews</h5>
+      <p>
+        <ngb-progressbar type="success" [value]="95" height="10px"></ngb-progressbar>95
+      </p>
+      <p>
+        <ngb-progressbar type="success" [value]="80" height="10px"></ngb-progressbar>80
+      </p>
+      <p>
+        <ngb-progressbar type="info" [value]="75" height="10px"></ngb-progressbar><span>75</span>
+      </p>
+      <p>
+        <ngb-progressbar type="warning" [value]="50" height="10px"></ngb-progressbar><span>50</span>
+      </p>
+      <p>
+        <ngb-progressbar type="danger" [value]="20" height="10px"></ngb-progressbar><span>20</span>
+      </p>
+    </div>
   </div>
 </div>

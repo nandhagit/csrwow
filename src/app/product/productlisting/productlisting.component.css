@@ -17,3 +17,11 @@ background-color: #e8e7e76b;
 ul {
   padding: 10px 10px;
 }
+.item{
+  margin-top: 2%;
+  margin-left: 0%;
+}
+.item:hover{
+  transform: scale(1.03);
+ /*background-color: whitesmoke;*/
+}

@@ -1,37 +1,43 @@
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ngb-carousel *ngIf="images">
-      <ng-template ngbSlide>
-        <img [src]="images[0]" alt="Random first slide">
-        <div class="carousel-caption">
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <img [src]="images[1]" alt="Random second slide">
-        <div class="carousel-caption">
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <img [src]="images[2]" alt="Random third slide">
-        <div class="carousel-caption">
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
+      <ng-template *ngFor="let img of images" ngbSlide>
+        <img [src]="img" alt="Random first slide">
       </ng-template>
     </ngb-carousel>
   </div>
-  <div class="row offers">
-    <div class="col-md-12">
+  <div class="row offers align-items-center">
+    <div class="ourproducts col col-md-12 border border-bottom-0">
       <div class="row">
-        <div class="col-md-3" *ngFor="let number of [0,1,2,3]">
-         <!-- <app-product></app-product>-->
+        <div class="col col-md-10">
+          <h4>Our Products</h4>
         </div>
+        <div class="col col-md-2"><a class="btn btn-primary pull-right" routerLinkActive="active" routerLink="/products">View All</a></div>
+      </div>
+    </div>
+    <div class="col-md-12 border">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ngb-carousel [showNavigationArrows]="false">
+          <div class="carousel-caption">
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
+          <ng-template ngbSlide>
+            <div class="row text-center">
+              <div class="col-md-2" *ngFor="let product of products | slice:0:6">
+                <app-product [product]="product"></app-product>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="row text-center">
+              <div class="col-md-2" *ngFor="let product of products | slice:6:12">
+                <app-product [product]="product"></app-product>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
       </div>
     </div>
   </div>
-
 </div>

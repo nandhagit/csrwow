@@ -3,24 +3,24 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>#f7f6f6
         </div>-->
-
-<div class="container">
-  <div class="row justify-content-center align-items-center rounded shadow p-2 mb-4 border border-primary">
+<div class="modal-header">
+  <h2 class="form-signin-heading ">Sign in!</h2>
+  <button type="button" class="close" aria-label="Close" (click)="ngbActive.dismiss('User closed')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row justify-content-center align-items-center">
     <div class="col-sm-8">
       <form class="form-signin" (submit)="login()">
-        <div class="row justify-content-center">
-          <h2 class="form-signin-heading">Sign in!</h2>
-        </div>
         <div class="form-group row justify-content-center">
-          <label for="inputEmail" class="col-sm-3 col-form-label">Email address</label>
-          <div class="col-sm-8">
+          <div class="col-sm-11">
             <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address"
               [(ngModel)]="credentials.username">
           </div>
         </div>
         <div class="form-group row justify-content-center ">
-          <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
-          <div class="col-sm-8">
+          <div class="col-sm-11">
             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
               [(ngModel)]="credentials.password">
           </div>
@@ -33,4 +33,7 @@
       </form>
     </div>
   </div>
+</div>
+<div class="modal-footer">
+  <div>Dont't have an account? <a href="#">Sign Up</a></div>
 </div>

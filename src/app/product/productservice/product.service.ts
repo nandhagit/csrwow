@@ -35,4 +35,9 @@ export class ProductService {
   getCartItems(userId: any): Observable<any> {
     return this.http.get("http://localhost:8080/getcartitems", { params: { user: userId } });
   }
+
+  getCartCount(userId: any): Observable<any> {
+    return this.http.get("http://localhost:8080/getcartcount", { params: { user: userId } });
+  }
+
 }

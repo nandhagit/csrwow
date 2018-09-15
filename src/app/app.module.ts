@@ -19,6 +19,7 @@ import { CheckoutComponent } from './payment/checkout/checkout.component';
 import { MycartComponent } from './mycart/mycart.component';
 import { WowInterceptor } from './wow-interceptor';
 import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
+import { SignupService } from './signup/signup.service';
 
 
 const routes: Routes = [
@@ -85,7 +86,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductService, { provide: HTTP_INTERCEPTORS, useClass: WowInterceptor, multi: true }],
+  providers: [ProductService, { provide: HTTP_INTERCEPTORS, useClass: WowInterceptor, multi: true }, SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
