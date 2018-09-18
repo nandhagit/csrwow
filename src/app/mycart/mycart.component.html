@@ -1,7 +1,7 @@
-<div class="container">
+<!--<div class="container">
   <div *ngIf="products">
     <h4>My cart: {{products.length}}</h4>
-    <!--<div class="col-md-9 jumbotron rounded border border-primary shadow p-2 mb-4" *ngFor="let item of products">
+    <div class="col-md-9 jumbotron rounded border border-primary shadow p-2 mb-4" *ngFor="let item of products">
       <div class="row">
         <div class="col-md-2">
           <img src="../../../assets/bag/baglittle.png" />
@@ -16,7 +16,7 @@
           <button class="btn">Add to wishlist</button>
         </div>
       </div>
-    </div>-->
+    </div>
     <div class="card row" *ngFor="let item of products">
       <div class="col col-md-10">
         <div class="row">
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <!--<div class="col-md-3 sidebar-sticky sticky-top">
+    <div class="col-md-3 sidebar-sticky sticky-top">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Details</h5>
@@ -53,7 +53,7 @@
           <p class="card-text">Total amount:<span>1200</span></p>
         </div>
       </div>
-    </div>-->
+    </div>
   </div>
   <div *ngIf="products.length==0">
     <p>My cart: 0</p>
@@ -65,3 +65,56 @@
     </div>
   </div>
 </div>
+-->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav position="end" mode="side" opened>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>product.name<button mat-icon-button [color]="wished" (click)="togglewish()">
+            <mat-icon aria-label="wish-list">favorite</mat-icon>
+          </button></mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <div class="price"><b>product.price</b></div>
+        <div>product.size</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent">Buy now!</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-grid-list cols="4" rowHeight="100px">
+      <div *ngFor="let number of [0,1,2,3,4]">
+        <mat-grid-tile colspan="1" rowspan="2">
+          <ol class="list-unstyled">
+            <li>
+              <img src="../../../assets/bag/baglittle.png" />
+            </li>
+            <li>
+              <a>
+                <mat-icon>add_circle</mat-icon>
+              </a>2
+              <a>
+                <mat-icon>remove_circle</mat-icon>
+              </a>
+            </li>
+          </ol>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="2">2
+          <mat-grid-tile-footer>
+            <a>
+              <mat-icon>remove_shopping_cart</mat-icon>Remove
+            </a>
+            <a>
+              <mat-icon>favorite</mat-icon>Add to wishlist
+            </a>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

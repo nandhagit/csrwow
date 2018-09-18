@@ -20,10 +20,11 @@ import { MycartComponent } from './mycart/mycart.component';
 import { WowInterceptor } from './wow-interceptor';
 import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
 import { SignupService } from './signup/signup.service';
-import { MatSidenavModule, MatToolbarModule, MatBadgeModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatMenuModule, MatCardModule, MatButtonModule, MatGridListModule, MatListModule, MatDividerModule, MatSliderModule, MatTabsModule, MatButtonToggleModule, MatLineModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatBadgeModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatMenuModule, MatCardModule, MatButtonModule, MatGridListModule, MatListModule, MatDividerModule, MatSliderModule, MatTabsModule, MatButtonToggleModule, MatLineModule, MatProgressSpinnerModule, MatSnackBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { AboutvideoComponent } from './aboutus/aboutvideo/aboutvideo.component';
+import { StatComponent } from './stat/stat.component';
 
 
 
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'openItem',
     component: ProductdisplayComponent
+  },
+  {
+    path: 'stat',
+    component: StatComponent
   }
 ];
 
@@ -82,6 +87,7 @@ const routes: Routes = [
     MycartComponent,
     ProductdisplayComponent,
     AboutvideoComponent,
+    StatComponent,
 
   ],
   imports: [
@@ -110,7 +116,9 @@ const routes: Routes = [
     MatTabsModule,
     MatButtonToggleModule,
     MatLineModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   providers: [ProductService, { provide: HTTP_INTERCEPTORS, useClass: WowInterceptor, multi: true }, SignupService],
   bootstrap: [AppComponent],

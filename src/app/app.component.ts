@@ -6,7 +6,7 @@ import { finalize } from 'rxjs/operators';
 import { ProductService } from './product/productservice/product.service';
 import { LoginComponent } from './login/login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { MatDialogConfig, MatDialog } from '@angular/material';
+import { MatDialogConfig, MatDialog, MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'csr-wow';
   cartCount: number;
 
-  constructor(private dialog: MatDialog, private app: LoginService, private http: HttpClient, private router: Router, private productservice: ProductService) {
+  constructor(private snakbar: MatSnackBar,private dialog: MatDialog, private app: LoginService, private http: HttpClient, private router: Router, private productservice: ProductService) {
   }
 
   getCartCount() {
@@ -39,10 +39,18 @@ export class AppComponent {
   }
 
   openCart() {
-    this.router.navigateByUrl('/mycart')
+    this.router.navigateByUrl('/mycart');
   }
 
-  openSignup(){
+  openSignup() {
     this.dialog.open(SignupComponent, {width: '700px', height: '700px'})
   }
+
+  openSnackBar(message: string, action: string) {
+    this.snakbar.open(message, action, {
+      duration: 2000,
+    });
+  }
 }
+
+

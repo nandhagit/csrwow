@@ -15,10 +15,10 @@ export class MycartComponent implements OnInit {
   constructor(private productservice: ProductService, private loginService: LoginService) { }
 
   ngOnInit() {
-    this.productservice.getCartItems(this.loginService.user.id).subscribe(data => {
+   /* this.productservice.getCartItems(this.loginService.user.id).subscribe(data => {
       this.products = data;
       console.log(this.products);
-    });
+    });*/
   }
 
 }
