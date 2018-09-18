@@ -13,6 +13,8 @@ export class ProductComponent implements OnInit {
 
   currentRate = 3.3;
 
+  images = [1, 2, 3, 4, 5].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -23,5 +25,6 @@ export class ProductComponent implements OnInit {
     localStorage.setItem('itemId', itemId);
     this.router.navigateByUrl('/openItem');
   }
+
 
 }

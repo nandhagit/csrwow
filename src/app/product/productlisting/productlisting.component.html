@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <div class="row justify-content-center">
     <div class="col-md-3 filterblock">
       <div class="sidebar-sticky sticky-top">
@@ -38,3 +38,39 @@
     </div>
   </div>
 </div>
+<mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-tile *ngFor="let type of jutetype" colspan="1" rowspan="15">
+    <input type="checkbox" class="custom-control-input" [id]="type.id" [checked]="false" (change)="filterProduct(type.value, $event)">
+    <label class="custom-control-label" [for]="type.id">{{type.value}}</label>
+  </mat-grid-tile>
+</mat-grid-list>-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <h4 matSubheader>Category</h4>
+    <mat-selection-list #category>
+      <mat-list-option checkboxPosition="before" *ngFor="let category of categories">
+        {{category.value}}
+      </mat-list-option>
+    </mat-selection-list>
+    <h4 matSubheader>Sub-Category</h4>
+    <mat-selection-list #bags>
+      <mat-list-option checkboxPosition="before" *ngFor="let type of bagtype">
+        {{type.value}}
+      </mat-list-option>
+    </mat-selection-list>
+    <h4 matSubheader>Rating</h4>
+    <mat-selection-list>
+      <mat-slider class="example-margin" max="5" min="" thumbLabel="true" tickInterval="1" [(ngModel)]="rating">
+      </mat-slider>
+    </mat-selection-list>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <mat-grid-list cols="4" rowHeight="100px">
+      <mat-grid-tile *ngFor="let item of products" colspan="1" rowspan="5">
+        <app-product [product]="item"></app-product>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

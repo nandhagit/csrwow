@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { ProductService } from './product/productservice/product.service';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { MatDialogConfig, MatDialog } from '@angular/material';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'csr-wow';
   cartCount: number;
 
-  constructor(private ngbmodel: NgbModal, private app: LoginService, private http: HttpClient, private router: Router, private productservice: ProductService) {
+  constructor(private dialog: MatDialog, private app: LoginService, private http: HttpClient, private router: Router, private productservice: ProductService) {
   }
 
   getCartCount() {
@@ -35,10 +35,14 @@ export class AppComponent {
   }
 
   openLogin() {
-    const modalRef = this.ngbmodel.open(LoginComponent);
+    this.dialog.open(LoginComponent, {width: '700px', height: '700px'});
   }
 
-  openSignin(){
-    const modalRef = this.ngbmodel.open(SignupComponent);
+  openCart() {
+    this.router.navigateByUrl('/mycart')
+  }
+
+  openSignup(){
+    this.dialog.open(SignupComponent, {width: '700px', height: '700px'})
   }
 }

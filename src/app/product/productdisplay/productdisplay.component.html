@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <div class="row">
     <div class="col col-md-4 sidebar-sticky sticky-top">
       <div class="sidebar-sticky sticky-top">
@@ -45,4 +45,55 @@
       </p>
     </div>
   </div>
-</div>
+</div>-->
+<mat-grid-list cols="6" rowHeight="200px">
+  <mat-grid-tile colspan="1" rowspan="3">
+    <ol class="list-unstyled">
+      <li>
+        <img class="imgsmall" src="../../../assets/bag/bag.png" />
+      </li>
+      <li>
+        <img class="imgsmall" src="../../../assets/bag/bag.png" />
+      </li>
+      <li>
+        <img class="imgsmall" src="../../../assets/bag/bag.png" />
+      </li>
+    </ol>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="3">
+    <div *ngIf="product">
+      <a class="productimage" (click)="openItem(product.id)">
+        <img src="../../../assets/bag/bag.png" />
+      </a>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="3">
+    <ol class="list-unstyled">
+      <li>
+        <h3>{{product.name}}</h3>
+      </li>
+      <li>
+        <div>Code: <span class="font-weight-light">{{product.code}}</span></div>
+      </li>
+      <li>
+        <div class="price"><b>{{product.price | currency:'INR'}}</b></div>
+      </li>
+      <li>
+        <div><b>Size: </b>{{product.size}}</div>
+      </li>
+      <li>
+        <h4>Description</h4>
+      </li>
+      <li>
+        <p>Product descripption Product descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+          descripptionProduct descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+          descripptionProduct descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+          descripptionProduct descripptionProduct descripptionProduct descripptionProduct descripptionProduct
+          descripptionProduct descripptionProduct descripptionProduct descripptiondescripptionProduct
+          descripptionProduct
+          descripptionProduct descripptionProduct descripption</p>
+      </li>
+      <li>Quantity: <a>-</a><span>1</span><a>+</a></li>
+    </ol>
+  </mat-grid-tile>
+</mat-grid-list>

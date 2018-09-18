@@ -1,27 +1,8 @@
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before,
-.custom-control-input:checked~.custom-control-label::before {
-  background-color: #28a745;
-}
-
-ul.filters, .border.rounded {
-  margin-bottom: 20px;
-}
-ul.filters{
-background-color: #e8e7e76b;
-}
-
-.bagfilter {
-  margin: 0px 20px;
-}
-
-ul {
-  padding: 10px 10px;
-}
-.item{
-  margin-top: 2%;
-  margin-left: 0%;
-}
-.item:hover{
+app-product:hover{
   transform: scale(1.03);
  /*background-color: whitesmoke;*/
+}
+
+app-product{
+  padding:0 20px;
 }

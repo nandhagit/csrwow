@@ -15,7 +15,7 @@ export class LoginService {
     authenticate(credentials, callback) {
 
         const headers = new HttpHeaders(credentials ? {
-            authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
+            authorization: 'Basic ' + btoa(credentials.email + ':' + credentials.password)
         } : {});
 
         this.http.get('http://localhost:8080/user', { headers: headers }).subscribe(response => {

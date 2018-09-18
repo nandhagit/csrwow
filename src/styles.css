@@ -2,7 +2,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.min.css';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
+/*
 .container {
   margin-top: 10%;
   margin-bottom: 5%;
@@ -52,4 +52,16 @@
 
 .sticky-top{
   top: 50px;
+}
+*/
+.mat-dialog-container {
+  box-shadow: none !important;
+  background: none !important;
+}
+a{
+  cursor: pointer;
+  color: blue !important;
+}
+mat-grid-list.mat-grid-list {
+  margin: 30px 50px;
 }

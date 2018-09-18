@@ -11,16 +11,20 @@ import { Router } from '@angular/router';
 export class ProductlistingComponent implements OnInit {
 
 
-  jutetype: any[] = [{ id: 'lsb', value: 'Long Shopping Bag' },
+  bagtype: any[] = [{ id: 'lsb', value: 'Long Shopping Bag' },
   { id: 'plb', value: 'Pipping Long Shopping' },
   { id: 'prb', value: 'Piping Rectangular Bag' },
   { id: 'prsb', value: 'Printed Round Shopping Bag' },
   { id: 'rsb', value: 'Rectangular Shopping Bag' },
   { id: 'rshb', value: 'Round Shopping Bag' },
   { id: 'tlb', value: 'Trapezium Lunch Bag' },
-  { id: 'wbb', value: 'Water Bottle Bag' }];
+  { id: 'wbb', value: 'Water Bottle Bag' },
+  { id: 'bbb', value: 'Big Batwa Bag' }];
+  categories: any[] = [{ id: 'bags', value: 'Bags' },
+  { id: 'stole', value: 'Stole' },
+  { id: 'pouches', value: 'Pouches' }];
 
-  batwatype: any[] = [{ id: 'bbb', value: 'Big Batwa Bag' }];
+  //batwatype: any[] = [{ id: 'bbb', value: 'Big Batwa Bag' }];
   products: Product[];
   filter: any[] = [];
   loader: boolean = false;

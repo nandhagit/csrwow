@@ -1,8 +1,8 @@
-<a class="productimage" (click)="openItem(product.id)"><img src="../../../assets/bag/bag.png" /></a>
+<!--<a class="productimage" (click)="openItem(product.id)"><img src="../../../assets/bag/bag.png" /></a>
 <div><b>{{product.name}}</b></div>
 <div><span class="font-weight-light">{{product.code}}</span></div>
 <div class="price"><b>{{product.price | currency:'INR'}}</b></div>
-<div>{{product.size}}</div>
+<div>{{product.size}}</div>-->
 <!--
 <ngb-rating [(rate)]="currentRate" [readonly]="true" max="5">
   <ng-template let-fill="fill" let-index="index">
@@ -10,3 +10,19 @@
   </ng-template>
 </ngb-rating>
 -->
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{product.name}}<button mat-icon-button [color]="wished" (click)="togglewish()">
+        <mat-icon aria-label="wish-list">favorite</mat-icon>
+      </button></mat-card-title>
+    
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+      <div class="price"><b>{{product.price | currency:'INR'}}</b></div>
+      <div>{{product.size}}</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent">Buy now!</button>
+  </mat-card-actions>
+</mat-card>

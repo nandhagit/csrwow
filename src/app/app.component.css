@@ -1,4 +1,4 @@
-#formsearch{
+/*#formsearch{
     padding-left: 100px;
 }
 
@@ -9,4 +9,28 @@
 .dot{
     border-radius: 50%;
     background-color: #e8e7e7;
-}
+}*/
+.tool-icons{
+    padding: 0px 20px;
+  }
+.spacer {
+    flex: 1 1 auto;
+  }
+  .search-form{
+      padding: 0 60px;
+  }
+  mat-icon{
+      cursor: pointer;
+  }
+  .wow-tool-bar{
+        position: sticky;
+        top: 0;
+        z-index: 1000
+  }
+  .mat-toolbar-row {
+      height: 100px;
+  }
+
+  .search-input, .search-form{
+      width: 100%;
+  }

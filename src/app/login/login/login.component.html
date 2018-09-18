@@ -1,9 +1,4 @@
-<!--<div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>#f7f6f6
-        </div>-->
-<div class="modal-header">
+<!--<div class="modal-header">
   <h2 class="form-signin-heading ">Sign in!</h2>
   <button type="button" class="close" aria-label="Close" (click)="ngbActive.dismiss('User closed')">
     <span aria-hidden="true">&times;</span>
@@ -32,8 +27,40 @@
         </div>
       </form>
     </div>
-  </div>
-</div>
-<div class="modal-footer">
-  <div>Dont't have an account? <a href="#">Sign Up</a></div>
-</div>
+  </div>-->
+<mat-grid-list cols="6" rowHeight="100px">
+  <mat-grid-tile class="side-block" colspan="3" rowspan="5">
+    <ol class="list-unstyled">
+      <li><b>Signin</b></li>
+      <li>
+        <p>Get access to your wishlist, cart</p>
+      </li>
+    </ol>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="5">
+    <form class="form-signin" (ngSubmit)="signin(loginForm.value)" [formGroup]="loginForm">
+      <mat-dialog-content>
+        <ul class="list-unstyled">
+          <li>
+            <mat-form-field>
+              <input matInput placeholder="Email" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getEmailError()}}</mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field>
+              <input type="password" matInput placeholder="Password" [formControl]="password">
+              <mat-error *ngIf="password.invalid">{{getPwdError()}}</mat-error>
+            </mat-form-field>
+          </li>
+        </ul>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <ol class="list-unstyled">
+          <li><button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent">Sign In</button></li>
+          <li>Don't have an account yet? <a (click)="openSignup()">Sign up</a></li>
+        </ol>
+      </mat-dialog-actions>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

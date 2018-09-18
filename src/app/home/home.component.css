@@ -1,14 +1,10 @@
-.offers {
-    margin-top: 5%;
-}
-.maincontainer{
-    padding-top: 100px;
-    text-align: center;
-}
-.col-md-2:hover{
-    transform: scale(1.01)
+app-product{
+    padding:0 20px;
 }
 
-.ourproducts{
-    padding: 10px;
+div#wowCarousel{
+    margin-bottom: 5%;
+}
+.carousel.slide>div {
+    text-align: center;
 }

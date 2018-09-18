@@ -14,12 +14,17 @@ import { ManageitemComponent } from './admin/manageitem/manageitem.component';
 import { ManagespecificationComponent } from './admin/managespecification/managespecification.component';
 import { ProductService } from './product/productservice/product.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutComponent } from './payment/checkout/checkout.component';
 import { MycartComponent } from './mycart/mycart.component';
 import { WowInterceptor } from './wow-interceptor';
 import { ProductdisplayComponent } from './product/productdisplay/productdisplay.component';
 import { SignupService } from './signup/signup.service';
+import { MatSidenavModule, MatToolbarModule, MatBadgeModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatMenuModule, MatCardModule, MatButtonModule, MatGridListModule, MatListModule, MatDividerModule, MatSliderModule, MatTabsModule, MatButtonToggleModule, MatLineModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { AboutvideoComponent } from './aboutus/aboutvideo/aboutvideo.component';
+
 
 
 const routes: Routes = [
@@ -75,7 +80,9 @@ const routes: Routes = [
     ManagespecificationComponent,
     CheckoutComponent,
     MycartComponent,
-    ProductdisplayComponent
+    ProductdisplayComponent,
+    AboutvideoComponent,
+
   ],
   imports: [
     RouterModule.forRoot(
@@ -84,9 +91,29 @@ const routes: Routes = [
     BrowserModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatCardModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatListModule,
+    MatDividerModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatLineModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService, { provide: HTTP_INTERCEPTORS, useClass: WowInterceptor, multi: true }, SignupService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent, AboutvideoComponent, SignupComponent]
 })
 export class AppModule { }

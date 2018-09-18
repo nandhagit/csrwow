@@ -10,13 +10,11 @@ import { Product } from '../product/product';
 export class HomeComponent implements OnInit {
 
   products: Product[];
-  images = ['https://picsum.photos/1680/300', 'https://picsum.photos/1680/300', 'https://picsum.photos/1680/300', 'https://picsum.photos/1680/300', 'https://picsum.photos/1680/300'];
+  images = ['https://picsum.photos/1680/300', 'https://picsum.photos/1680/300', 'https://picsum.photos/1680/300'];
   constructor(private productService: ProductService) { }
   ngOnInit() {
     this.productService.getProducts().subscribe(response => {
       this.products = response;
-      this.products = this.products.slice(4, this.products.length)
-      console.log(this.products.length)
     })
   }
 

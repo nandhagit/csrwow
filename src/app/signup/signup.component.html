@@ -1,4 +1,4 @@
-<div class="modal-header">
+<!--<div class="modal-header">
   <h2 class="form-signin-heading ">Sign in!</h2>
   <button type="button" class="close" aria-label="Close" (click)="ngbActive.dismiss('User closed')">
     <span aria-hidden="true">&times;</span>
@@ -80,4 +80,64 @@
 </div>
 <div class="modal-footer">
   <div>Have an account already? <a href="#">Sign In</a></div>
-</div>
+</div>-->
+<mat-grid-list cols="6" rowHeight="100px">
+  <mat-grid-tile class="side-block" colspan="3" rowspan="5">
+    <ol class="list-unstyled">
+      <li><b>Signup</b></li>
+      <li>
+        <p>Get access to your wishlist, cart</p>
+      </li>
+    </ol>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="5">
+    <form [formGroup]="signinForm" class="form-signin" (ngSubmit)="saveUser(signinForm.value)">
+      <mat-dialog-content>
+        <ul class="list-unstyled">
+          <li>
+            <mat-form-field>
+              <input matInput placeholder="First Name" [formControl]="firstname" required>
+              <mat-error *ngIf="firstname.invalid">{{getError()}}</mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field>
+              <input matInput placeholder="Last Name" [formControl]="lastname" required>
+              <mat-error *ngIf="lastname.invalid">{{getError()}}</mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field>
+              <input matInput placeholder="Phone Number" [formControl]="phonenum" required>
+              <mat-error *ngIf="phonenum.invalid">{{getPhError()}}</mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field>
+              <input matInput placeholder="Email" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getError()}}</mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field>
+              <input type="password" matInput placeholder="Password" [formControl]="password" required>
+              <mat-error *ngIf="password.invalid">{{getPasswordError()}}</mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field>
+              <input type="password" matInput placeholder="Re-enter Password" [formControl]="repassword" required>
+              <mat-error *ngIf="repassword.invalid">{{getrePasswordError()}}</mat-error>
+            </mat-form-field>
+          </li>
+        </ul>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <ol class="list-unstyled">
+            <li><button [disabled]= "!signinForm.valid" type="submit" mat-raised-button color="accent">Sign In</button></li>
+            <li>Already a member? <a (click)="openLogin()">Sign in</a></li>
+          </ol>
+      </mat-dialog-actions>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

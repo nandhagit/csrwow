@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../loginservice/login.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogRef, MatDialog } from "@angular/material";
+import { SignupComponent } from '../../signup/signup.component';
+import { FormGroup, AbstractControl, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 
 @Component({
@@ -12,21 +14,45 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class LoginComponent implements OnInit {
 
-  credentials = {username: '', password: ''};
+  loginForm: FormGroup;
+  email: AbstractControl;
+  password: AbstractControl;
 
-  constructor(private ngbActive: NgbActiveModal, private loginservice: LoginService, private http: HttpClient, private router: Router) {
+  constructor(private matDialog: MatDialog, private dialog: MatDialogRef<LoginComponent>, private loginservice: LoginService, private http: HttpClient, private router: Router, private formbuilder: FormBuilder) {
+    this.loginForm = formbuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+    this.email = this.loginForm.controls['email'];
+    this.password = this.loginForm.controls['password'];
   }
 
-  login() {
-    this.loginservice.authenticate(this.credentials, () => {
-        this.router.navigateByUrl('/');
-        this.ngbActive.dismiss('Logged In');
+  ngOnInit() {
+
+  }
+  signin(form: NgForm) {
+    this.loginservice.authenticate(form, () => {
+      this.router.navigateByUrl('/');
+      this.close();
     });
     return false;
   }
 
-  ngOnInit() {
-    
+  close() {
+    this.dialog.close();
+  }
+
+  openSignup() {
+    this.dialog.close('Opening Sign up');
+    this.matDialog.open(SignupComponent, { width: '700px', height: '700px' })
+  }
+
+  private getEmailError(){
+    return this.loginForm.controls.email.hasError('required')?'Please enter email':'';
+  }
+
+  private getPwdError(){
+    return this.loginForm.controls.password.hasError('required')?'Please enter password':'';
   }
 
 }

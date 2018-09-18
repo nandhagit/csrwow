@@ -1,43 +1,86 @@
-<div class="container">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ngb-carousel *ngIf="images">
-      <ng-template *ngFor="let img of images" ngbSlide>
-        <img [src]="img" alt="Random first slide">
-      </ng-template>
-    </ngb-carousel>
-  </div>
-  <div class="row offers align-items-center">
-    <div class="ourproducts col col-md-12 border border-bottom-0">
-      <div class="row">
-        <div class="col col-md-10">
-          <h4>Our Products</h4>
-        </div>
-        <div class="col col-md-2"><a class="btn btn-primary pull-right" routerLinkActive="active" routerLink="/products">View All</a></div>
+<div id="wowCarousel" class="carousel slide" data-ride="carousel">
+  <ngb-carousel *ngIf="images">
+    <ng-template *ngFor="let img of images" ngbSlide>
+      <img [src]="img" alt="Random first slide">
+    </ng-template>
+  </ngb-carousel>
+</div>
+<div id="wowBagCarousel" class="carousel slide" data-ride="carousel">
+    <div>
+        <h5>Bags</h5>
+        <a href="#">VIEW ALL</a>
       </div>
-    </div>
-    <div class="col-md-12 border">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ngb-carousel [showNavigationArrows]="false">
-          <div class="carousel-caption">
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </div>
-          <ng-template ngbSlide>
-            <div class="row text-center">
-              <div class="col-md-2" *ngFor="let product of products | slice:0:6">
-                <app-product [product]="product"></app-product>
-              </div>
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <div class="row text-center">
-              <div class="col-md-2" *ngFor="let product of products | slice:6:12">
-                <app-product [product]="product"></app-product>
-              </div>
-            </div>
-          </ng-template>
-        </ngb-carousel>
+  <ngb-carousel *ngIf="products">
+
+    <ng-template ngbSlide>
+      <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile *ngFor="let product of products | slice:0:5" colspan="1" rowspan="5">
+          <app-product [product]=product></app-product>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </ng-template>
+    <ng-template ngbSlide>
+      <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile *ngFor="let product of products | slice:5:10" colspan="1" rowspan="5">
+          <app-product [product]=product></app-product>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </ng-template>
+  </ngb-carousel>
+</div>
+
+<div id="wowPouchesCarousel" class="carousel slide" data-ride="carousel">
+    <div>
+        <h5>Pouches</h5>
+        <a href="#">VIEW ALL</a>
       </div>
-    </div>
+  <ngb-carousel *ngIf="products">
+
+    <ng-template ngbSlide>
+      <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile *ngFor="let product of products | slice:0:5" colspan="1" rowspan="5">
+          <app-product [product]=product></app-product>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </ng-template>
+    <ng-template ngbSlide>
+      <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile *ngFor="let product of products | slice:5:10" colspan="1" rowspan="5">
+          <app-product [product]=product></app-product>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </ng-template>
+  </ngb-carousel>
+</div>
+
+
+<div id="wowStoleCarousel" class="carousel slide" data-ride="carousel">
+  <div>
+    <h5>Stoles</h5>
+    <a href="#">VIEW ALL</a>
   </div>
+
+  <ngb-carousel *ngIf="products">
+
+    <ng-template ngbSlide>
+      <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile *ngFor="let product of products | slice:0:5" colspan="1" rowspan="5">
+          <app-product [product]=product></app-product>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </ng-template>
+    <ng-template ngbSlide>
+      <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile *ngFor="let product of products | slice:5:10" colspan="1" rowspan="5">
+          <app-product [product]=product></app-product>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </ng-template>
+  </ngb-carousel>
 </div>
